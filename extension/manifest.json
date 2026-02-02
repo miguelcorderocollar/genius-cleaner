@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Genius Cleaner",
+  "version": "1.0.0",
+  "description": "Simplify Genius.com UI by hiding ads, sidebars, and clutter while preserving lyrics and core content.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["*://*.genius.com/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.genius.com/*"],
+      "js": ["dist/content.js"],
+      "css": ["dist/cleaner.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Genius Cleaner: Simplify Genius UI",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "toggle-cleaner": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+G",
+        "mac": "Command+Shift+G"
+      },
+      "description": "Toggle Genius Cleaner on/off"
+    }
+  }
+}

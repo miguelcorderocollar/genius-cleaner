@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genius Cleaner</title>
+    <link rel="stylesheet" href="shared/theme.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup-container">
+      <!-- Header -->
+      <header class="popup-header">
+        <div class="popup-logo">
+          <img src="icons/icon48.png" alt="Genius Cleaner" class="logo-icon" />
+          <span class="logo-text">Genius Cleaner</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="globalEnabled" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </header>
+
+      <!-- Status -->
+      <div id="status-bar" class="status-bar status-enabled">
+        <span id="status-text">Active on Genius.com</span>
+      </div>
+
+      <!-- Quick Settings -->
+      <div class="popup-section">
+        <h3 class="section-title">Quick Settings</h3>
+        <div class="quick-settings">
+          <label class="setting-item">
+            <span class="setting-label">Hide Ads</span>
+            <input type="checkbox" id="hideAds" class="setting-checkbox" />
+          </label>
+          <label class="setting-item">
+            <span class="setting-label">Hide Recommendations</span>
+            <input type="checkbox" id="hideRecommendedSongs" class="setting-checkbox" />
+          </label>
+          <label class="setting-item">
+            <span class="setting-label">Hide Q&A Section</span>
+            <input type="checkbox" id="hideQASection" class="setting-checkbox" />
+          </label>
+          <label class="setting-item">
+            <span class="setting-label">Hide Footer</span>
+            <input type="checkbox" id="hideFooter" class="setting-checkbox" />
+          </label>
+          <label class="setting-item">
+            <span class="setting-label">Wide Content Mode</span>
+            <input type="checkbox" id="wideContent" class="setting-checkbox" />
+          </label>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="popup-footer">
+        <button id="openSettingsBtn" class="btn-settings">
+          <svg
+            class="settings-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+            />
+          </svg>
+          <span>All Settings</span>
+        </button>
+      </div>
+    </div>
+    <script src="dist/popup.js"></script>
+  </body>
+</html>

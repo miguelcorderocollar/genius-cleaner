@@ -1,0 +1,53 @@
+{
+  "name": "genius-cleaner",
+  "version": "1.0.0",
+  "description": "Simplify Genius.com UI by hiding ads, sidebars, and clutter while preserving core content",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "build": "node build.js",
+    "build:prod": "node build.js --production",
+    "watch": "node scripts/watch.js",
+    "package": "node scripts/package.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user/genius-cleaner.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "genius",
+    "lyrics",
+    "ad-blocker",
+    "ui-cleaner"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/user/genius-cleaner/issues"
+  },
+  "homepage": "https://genius-cleaner.example.com/",
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@vitest/coverage-v8": "^4.0.16",
+    "esbuild": "^0.25.5",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.0.0",
+    "husky": "^9.1.7",
+    "jsdom": "^27.4.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "vitest": "^4.0.16"
+  },
+  "lint-staged": {
+    "*.{js,css,md,html}": "prettier --write"
+  }
+}

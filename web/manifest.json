@@ -1,0 +1,16 @@
+{
+  "name": "Genius Cleaner",
+  "short_name": "Genius Cleaner",
+  "description": "Simplify Genius.com by hiding ads and clutter",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FFFF64",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}

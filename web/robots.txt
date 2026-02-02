@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://genius-cleaner.example.com/sitemap.xml

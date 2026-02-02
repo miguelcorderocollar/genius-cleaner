@@ -1,0 +1,242 @@
+/**
+ * Genius Cleaner - CSS Rules for hiding page elements
+ * 
+ * Uses partial class matching since Genius uses hashed class names
+ * (e.g., .StickyNav-desktop__Container-sc-72d92c60-0)
+ * 
+ * Rules are only active when corresponding gc-hide-* class is on body
+ */
+
+/* =============================================================================
+   Advertisements
+   ============================================================================= */
+
+.gc-hide-ads [class*='dfp_unit'],
+.gc-hide-ads [class*='dfp_unit-'],
+.gc-hide-ads [id*='gpt-ad'],
+.gc-hide-ads [id*='div-gpt-ad'],
+.gc-hide-ads [class*='Leaderboard__Container'],
+.gc-hide-ads [class*='SectionLeaderboard__Container'],
+.gc-hide-ads [class*='LyricsSidebarAd'],
+.gc-hide-ads [class*='ad-slot'],
+.gc-hide-ads [class*='ad_slot'],
+.gc-hide-ads [class*='primis'],
+.gc-hide-ads [class*='Primis'],
+.gc-hide-ads [class*='outbrain'],
+.gc-hide-ads iframe[src*='ads'],
+.gc-hide-ads iframe[src*='doubleclick'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Navigation
+   ============================================================================= */
+
+.gc-hide-nav [class*='StickyNav-desktop__Container'],
+.gc-hide-nav [class*='StickyNav-mobile__Container'],
+.gc-hide-nav [id='sticky-nav'],
+.gc-hide-nav nav[class*='StickyNav'] {
+  display: none !important;
+}
+
+/* Adjust body padding when nav is hidden */
+.gc-hide-nav body {
+  padding-top: 0 !important;
+}
+
+/* =============================================================================
+   Footer
+   ============================================================================= */
+
+.gc-hide-footer [class*='PageFooter-desktop__Container'],
+.gc-hide-footer [class*='PageFooter-mobile__Container'],
+.gc-hide-footer [class*='PageFooter__Container'],
+.gc-hide-footer footer[class*='PageFooter'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Sticky Elements
+   ============================================================================= */
+
+.gc-hide-sticky [class*='BottomSticky'],
+.gc-hide-sticky [class*='SongPage__BottomSticky'],
+.gc-hide-sticky [class*='sticky_adhesion'],
+.gc-hide-sticky [class*='StickyAd'],
+.gc-hide-sticky [class*='stickyad'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Recommended Songs ("You Might Also Like")
+   ============================================================================= */
+
+.gc-hide-recommended [class*='RecommendedSongs__Container'],
+.gc-hide-recommended [class*='RecommendedSongs__Body'],
+.gc-hide-recommended [class*='RecommendedSongs__Header'],
+.gc-hide-recommended [class*='LyricsSidebarAd__Recommendations'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Q&A Section
+   ============================================================================= */
+
+.gc-hide-qa [class*='QuestionList__Container'],
+.gc-hide-qa [class*='QuestionList__Table'],
+.gc-hide-qa [class*='QuestionList__Header'],
+.gc-hide-qa [class*='question_list'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   About Section
+   ============================================================================= */
+
+.gc-hide-about [class*='About__Container'],
+.gc-hide-about [class*='About__Grid'],
+.gc-hide-about [class*='About__Title'],
+.gc-hide-about [class*='SongInfo__Container'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Album Tracklist (on song pages)
+   ============================================================================= */
+
+.gc-hide-tracklist [class*='AlbumTracklist__Container'],
+.gc-hide-tracklist [class*='AlbumTracklist__Track'],
+.gc-hide-tracklist ol[class*='AlbumTracklist'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Pyong Button
+   ============================================================================= */
+
+.gc-hide-pyong [class*='Pyong__Container'],
+.gc-hide-pyong [class*='SongHeader-desktop__Pyong'],
+.gc-hide-pyong [class*='SongHeader-desktop__PyongWrapper'],
+.gc-hide-pyong [class*='pyong'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Annotation Highlights
+   ============================================================================= */
+
+.gc-hide-annotations [data-lyrics-container] a[href*='/'],
+.gc-hide-annotations [class*='Lyrics__Container'] a[data-id] {
+  color: inherit !important;
+  text-decoration: none !important;
+  background: none !important;
+  cursor: text !important;
+  pointer-events: none !important;
+}
+
+/* Remove annotation underlines and highlights */
+.gc-hide-annotations [class*='ReferentFragmentdesktop'],
+.gc-hide-annotations [class*='ReferentFragment'] {
+  color: inherit !important;
+  background: none !important;
+}
+
+/* =============================================================================
+   Credits Section
+   ============================================================================= */
+
+.gc-hide-credits [class*='SongCredits__Container'],
+.gc-hide-credits [class*='HeaderCredit__Container'],
+.gc-hide-credits [class*='Credits__Container'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Other Albums (on album pages)
+   ============================================================================= */
+
+.gc-hide-other-albums [class*='OtherAlbums__Container'],
+.gc-hide-other-albums [class*='other_albums'],
+.gc-hide-other-albums [class*='RelatedAlbums'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Album Sidebar
+   ============================================================================= */
+
+.gc-hide-album-sidebar [class*='AlbumPage__Sidebar'],
+.gc-hide-album-sidebar [class*='album_sidebar'],
+.gc-hide-album-sidebar [class*='desktop_album_sidebar'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Artist Sidebar
+   ============================================================================= */
+
+.gc-hide-artist-sidebar [class*='ArtistPage__Sidebar'],
+.gc-hide-artist-sidebar [class*='artist_sidebar'],
+.gc-hide-artist-sidebar [class*='desktop_artist_sidebar'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Social Links
+   ============================================================================= */
+
+.gc-hide-social-links [class*='SocialLinks__Container'],
+.gc-hide-social-links [class*='ArtistSocialLinks'],
+.gc-hide-social-links [class*='social_links'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Wide Content Mode
+   ============================================================================= */
+
+.gc-hide-wide [class*='PageGrid-desktop'],
+.gc-hide-wide [class*='SongPage__Container'],
+.gc-hide-wide [class*='Lyrics__Root'] {
+  max-width: 100% !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+/* Expand lyrics container when sidebar is hidden */
+.gc-hide-wide.gc-hide-recommended [class*='LyricsPlaceholder'],
+.gc-hide-wide.gc-hide-recommended [class*='Lyrics__Container'] {
+  max-width: 100% !important;
+}
+
+/* Center content */
+.gc-hide-wide main[class*='SongPage__Container'] {
+  margin: 0 auto !important;
+}
+
+/* =============================================================================
+   Cleaner Typography
+   ============================================================================= */
+
+.gc-hide-typography [data-lyrics-container],
+.gc-hide-typography [class*='Lyrics__Container'] {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+}
+
+.gc-hide-typography [class*='Lyrics__Container'] br {
+  margin-bottom: 0.3em !important;
+}
+
+/* =============================================================================
+   Global Disabled State
+   ============================================================================= */
+
+/* When Genius Cleaner is disabled, no rules apply */
+body:not(.genius-cleaner-enabled) [class*='dfp_unit'],
+body:not(.genius-cleaner-enabled) [class*='RecommendedSongs'],
+body:not(.genius-cleaner-enabled) [class*='QuestionList'] {
+  /* No changes - show everything */
+}

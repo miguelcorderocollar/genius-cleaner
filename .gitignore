@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+extension/dist/
+
+# Test output
+test-results/
+coverage/
+
+# Packages
+packages/
+
+# Temp files
+/temp
+*.log
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+/examples
