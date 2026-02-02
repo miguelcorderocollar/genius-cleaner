@@ -3,7 +3,7 @@
   "name": "Genius Cleaner",
   "version": "1.0.0",
   "description": "Simplify Genius.com UI by hiding ads, sidebars, and clutter while preserving lyrics and core content.",
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage", "activeTab", "downloads"],
   "host_permissions": ["*://*.genius.com/*"],
   "background": {
     "service_worker": "background.js",

@@ -15,42 +15,84 @@
           <img src="icons/icon48.png" alt="Genius Cleaner" class="logo-icon" />
           <span class="logo-text">Genius Cleaner</span>
         </div>
-        <label class="toggle-switch">
+        <label class="toggle-switch" id="toggle-container">
           <input type="checkbox" id="globalEnabled" checked />
           <span class="toggle-slider"></span>
         </label>
       </header>
 
-      <!-- Status -->
-      <div id="status-bar" class="status-bar status-enabled">
-        <span id="status-text">Active on Genius.com</span>
+      <!-- Disabled Status (only shown when disabled) -->
+      <div id="status-bar" class="status-bar status-disabled hidden">
+        <span id="status-text">Disabled</span>
       </div>
 
-      <!-- Quick Settings -->
-      <div class="popup-section">
-        <h3 class="section-title">Quick Settings</h3>
-        <div class="quick-settings">
-          <label class="setting-item">
-            <span class="setting-label">Hide Ads</span>
-            <input type="checkbox" id="hideAds" class="setting-checkbox" />
-          </label>
-          <label class="setting-item">
-            <span class="setting-label">Hide Recommendations</span>
-            <input type="checkbox" id="hideRecommendedSongs" class="setting-checkbox" />
-          </label>
-          <label class="setting-item">
-            <span class="setting-label">Hide Q&A Section</span>
-            <input type="checkbox" id="hideQASection" class="setting-checkbox" />
-          </label>
-          <label class="setting-item">
-            <span class="setting-label">Hide Footer</span>
-            <input type="checkbox" id="hideFooter" class="setting-checkbox" />
-          </label>
-          <label class="setting-item">
-            <span class="setting-label">Wide Content Mode</span>
-            <input type="checkbox" id="wideContent" class="setting-checkbox" />
-          </label>
+      <!-- Not on Genius message -->
+      <div id="not-genius-section" class="popup-section not-genius hidden">
+        <div class="not-genius-message">
+          <svg
+            class="not-genius-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <p>This extension only works on Genius.com</p>
         </div>
+        <button id="openGeniusBtn" class="btn-primary">
+          <svg
+            class="btn-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          <span>Open Genius.com</span>
+        </button>
+      </div>
+
+      <!-- Page Actions (context-aware) -->
+      <div id="actions-section" class="popup-section popup-actions hidden">
+        <h3 class="section-title">Page Actions</h3>
+        <div class="action-buttons">
+          <button id="copyLyricsBtn" class="btn-action hidden" title="Copy lyrics to clipboard">
+            <svg
+              class="action-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <span>Copy Lyrics</span>
+          </button>
+          <button id="downloadArtworkBtn" class="btn-action hidden" title="Download cover artwork">
+            <svg
+              class="action-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>Download Artwork</span>
+          </button>
+        </div>
+        <div id="action-feedback" class="action-feedback hidden"></div>
       </div>
 
       <!-- Footer -->

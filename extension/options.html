@@ -29,174 +29,296 @@
 
       <!-- Main Content -->
       <main class="options-main">
-        <!-- Common Elements -->
-        <section class="settings-section">
-          <div class="section-header">
-            <h2>Common Elements</h2>
-            <p class="section-description">Elements that appear on all page types</p>
-          </div>
-          <div class="settings-grid">
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Advertisements</span>
-                <span class="setting-desc">Remove all ads, banners, and sponsored content</span>
-              </div>
-              <input type="checkbox" id="hideAds" class="setting-checkbox" />
+        <!-- Hide All Master Switch -->
+        <section class="settings-section hide-all-section">
+          <label class="setting-card setting-card-primary">
+            <div class="setting-info">
+              <span class="setting-name">Hide All</span>
+              <span class="setting-desc"
+                >Simplified mode - hide all clutter with one switch. Disable to customize individual
+                settings.</span
+              >
+            </div>
+            <label class="toggle-switch toggle-inline">
+              <input type="checkbox" id="hideAll" />
+              <span class="toggle-slider"></span>
             </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Navigation Bar</span>
-                <span class="setting-desc">Remove the sticky navigation header</span>
-              </div>
-              <input type="checkbox" id="hideNavigation" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Footer</span>
-                <span class="setting-desc">Remove the page footer section</span>
-              </div>
-              <input type="checkbox" id="hideFooter" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Sticky Elements</span>
-                <span class="setting-desc">Remove sticky bottom bars and floating ads</span>
-              </div>
-              <input type="checkbox" id="hideStickyElements" class="setting-checkbox" />
-            </label>
-          </div>
+          </label>
         </section>
 
-        <!-- Song Pages -->
-        <section class="settings-section">
-          <div class="section-header">
-            <h2>Song Pages</h2>
-            <p class="section-description">Elements specific to lyrics and song pages</p>
-          </div>
-          <div class="settings-grid">
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide "You Might Also Like"</span>
-                <span class="setting-desc">Remove recommended songs sidebar</span>
-              </div>
-              <input type="checkbox" id="hideRecommendedSongs" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Q&A Section</span>
-                <span class="setting-desc">Remove the questions and answers section</span>
-              </div>
-              <input type="checkbox" id="hideQASection" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide About Section</span>
-                <span class="setting-desc">Remove the "About" song information</span>
-              </div>
-              <input type="checkbox" id="hideAboutSection" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Album Tracklist</span>
-                <span class="setting-desc">Remove album tracklist on song pages</span>
-              </div>
-              <input type="checkbox" id="hideAlbumTracklist" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Pyong Button</span>
-                <span class="setting-desc">Remove the Pyong appreciation button</span>
-              </div>
-              <input type="checkbox" id="hidePyongButton" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Annotation Highlights</span>
-                <span class="setting-desc">Remove colored highlighting from annotated lyrics</span>
-              </div>
-              <input type="checkbox" id="hideAnnotationHighlights" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Credits Section</span>
-                <span class="setting-desc">Remove producer and writer credits</span>
-              </div>
-              <input type="checkbox" id="hideCreditsSection" class="setting-checkbox" />
-            </label>
-          </div>
-        </section>
+        <!-- Detailed Settings (hidden when Hide All is enabled) -->
+        <div id="detailed-settings">
+          <!-- Common Elements -->
+          <section class="settings-section">
+            <div class="section-header">
+              <h2>Common Elements</h2>
+              <p class="section-description">Elements that appear on all page types</p>
+            </div>
+            <div class="settings-grid">
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Advertisements</span>
+                  <span class="setting-desc">Remove all ads, banners, and sponsored content</span>
+                </div>
+                <input type="checkbox" id="hideAds" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Navigation Bar</span>
+                  <span class="setting-desc">Remove the sticky navigation header</span>
+                </div>
+                <input type="checkbox" id="hideNavigation" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Simplify Navigation Bar</span>
+                  <span class="setting-desc"
+                    >Keep navigation but hide search, user menu, and extra links</span
+                  >
+                </div>
+                <input type="checkbox" id="simplifyNavigation" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Footer</span>
+                  <span class="setting-desc">Remove the page footer section</span>
+                </div>
+                <input type="checkbox" id="hideFooter" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Sticky Elements</span>
+                  <span class="setting-desc">Remove sticky bottom bars and floating ads</span>
+                </div>
+                <input type="checkbox" id="hideStickyElements" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Breadcrumbs</span>
+                  <span class="setting-desc">Remove navigation breadcrumb links</span>
+                </div>
+                <input type="checkbox" id="hideBreadcrumbs" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Follow Button</span>
+                  <span class="setting-desc">Remove follow/subscribe buttons</span>
+                </div>
+                <input type="checkbox" id="hideFollowButton" class="setting-checkbox" />
+              </label>
+            </div>
+          </section>
 
-        <!-- Album Pages -->
-        <section class="settings-section">
-          <div class="section-header">
-            <h2>Album Pages</h2>
-            <p class="section-description">Elements specific to album pages</p>
-          </div>
-          <div class="settings-grid">
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Other Albums</span>
-                <span class="setting-desc">Remove "Other albums by artist" section</span>
-              </div>
-              <input type="checkbox" id="hideOtherAlbums" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Album Sidebar</span>
-                <span class="setting-desc">Remove the sidebar on album pages</span>
-              </div>
-              <input type="checkbox" id="hideAlbumSidebar" class="setting-checkbox" />
-            </label>
-          </div>
-        </section>
+          <!-- Song Pages -->
+          <section class="settings-section">
+            <div class="section-header">
+              <h2>Song Pages</h2>
+              <p class="section-description">Elements specific to lyrics and song pages</p>
+            </div>
+            <div class="settings-grid">
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Lyrics Sidebar</span>
+                  <span class="setting-desc"
+                    >Remove right sidebar with ticket links and "You Might Also Like"</span
+                  >
+                </div>
+                <input type="checkbox" id="hideLyricsSidebar" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Lyrics Edit Form</span>
+                  <span class="setting-desc">Remove the lyrics editing form and instructions</span>
+                </div>
+                <input type="checkbox" id="hideLyricsEditForm" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Q&A Section</span>
+                  <span class="setting-desc">Remove the questions and answers section</span>
+                </div>
+                <input type="checkbox" id="hideQASection" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide About Section</span>
+                  <span class="setting-desc">Remove the "About" song information</span>
+                </div>
+                <input type="checkbox" id="hideAboutSection" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Album Tracklist</span>
+                  <span class="setting-desc">Remove album tracklist on song pages</span>
+                </div>
+                <input type="checkbox" id="hideAlbumTracklist" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Pyong Button</span>
+                  <span class="setting-desc">Remove the Pyong appreciation button</span>
+                </div>
+                <input type="checkbox" id="hidePyongButton" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Annotation Highlights</span>
+                  <span class="setting-desc"
+                    >Remove colored highlighting from annotated lyrics</span
+                  >
+                </div>
+                <input type="checkbox" id="hideAnnotationHighlights" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Credits Section</span>
+                  <span class="setting-desc">Remove producer and writer credits</span>
+                </div>
+                <input type="checkbox" id="hideCreditsSection" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Comments Section</span>
+                  <span class="setting-desc"
+                    >Remove comments and "Sign Up And Drop Knowledge" CTA</span
+                  >
+                </div>
+                <input type="checkbox" id="hideComments" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Share Buttons</span>
+                  <span class="setting-desc">Remove social sharing buttons</span>
+                </div>
+                <input type="checkbox" id="hideShareButtons" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Contributors Card</span>
+                  <span class="setting-desc">Remove the contributors credit card</span>
+                </div>
+                <input type="checkbox" id="hideContributors" class="setting-checkbox" />
+              </label>
+            </div>
+          </section>
 
-        <!-- Artist Pages -->
-        <section class="settings-section">
-          <div class="section-header">
-            <h2>Artist Pages</h2>
-            <p class="section-description">Elements specific to artist pages</p>
-          </div>
-          <div class="settings-grid">
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Artist Sidebar</span>
-                <span class="setting-desc">Remove the sidebar on artist pages</span>
-              </div>
-              <input type="checkbox" id="hideArtistSidebar" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Hide Social Links</span>
-                <span class="setting-desc">Remove social media links section</span>
-              </div>
-              <input type="checkbox" id="hideArtistSocialLinks" class="setting-checkbox" />
-            </label>
-          </div>
-        </section>
+          <!-- Album Pages -->
+          <section class="settings-section">
+            <div class="section-header">
+              <h2>Album Pages</h2>
+              <p class="section-description">Elements specific to album pages</p>
+            </div>
+            <div class="settings-grid">
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Other Albums</span>
+                  <span class="setting-desc">Remove "Other albums by artist" section</span>
+                </div>
+                <input type="checkbox" id="hideOtherAlbums" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Album Sidebar</span>
+                  <span class="setting-desc">Remove the sidebar on album pages</span>
+                </div>
+                <input type="checkbox" id="hideAlbumSidebar" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Top Scholars</span>
+                  <span class="setting-desc">Remove the leaderboard of top contributors</span>
+                </div>
+                <input type="checkbox" id="hideAlbumLeaderboard" class="setting-checkbox" />
+              </label>
+            </div>
+          </section>
 
-        <!-- Visual Tweaks -->
-        <section class="settings-section">
-          <div class="section-header">
-            <h2>Visual Tweaks</h2>
-            <p class="section-description">Layout and typography adjustments</p>
-          </div>
-          <div class="settings-grid">
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Wide Content Mode</span>
-                <span class="setting-desc">Expand content to use full page width</span>
-              </div>
-              <input type="checkbox" id="wideContent" class="setting-checkbox" />
-            </label>
-            <label class="setting-card">
-              <div class="setting-info">
-                <span class="setting-name">Cleaner Typography</span>
-                <span class="setting-desc">Apply improved font and line spacing to lyrics</span>
-              </div>
-              <input type="checkbox" id="cleanerTypography" class="setting-checkbox" />
-            </label>
-          </div>
-        </section>
+          <!-- Artist Pages -->
+          <section class="settings-section">
+            <div class="section-header">
+              <h2>Artist Pages</h2>
+              <p class="section-description">Elements specific to artist pages</p>
+            </div>
+            <div class="settings-grid">
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Artist Sidebar</span>
+                  <span class="setting-desc">Remove the sidebar on artist pages</span>
+                </div>
+                <input type="checkbox" id="hideArtistSidebar" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Social Links</span>
+                  <span class="setting-desc">Remove social media links section</span>
+                </div>
+                <input type="checkbox" id="hideArtistSocialLinks" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Video Player</span>
+                  <span class="setting-desc">Remove the Primis video player</span>
+                </div>
+                <input type="checkbox" id="hideArtistVideoPlayer" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Top Scholars</span>
+                  <span class="setting-desc">Remove the leaderboard of top contributors</span>
+                </div>
+                <input type="checkbox" id="hideArtistLeaderboard" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Metadata Questions</span>
+                  <span class="setting-desc">Remove FAQ like "When did X start making music?"</span>
+                </div>
+                <input type="checkbox" id="hideArtistMetadataQuestions" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Contributions</span>
+                  <span class="setting-desc"
+                    >Remove the user activity and contributions section</span
+                  >
+                </div>
+                <input type="checkbox" id="hideArtistContributions" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Hide Profile Tabs</span>
+                  <span class="setting-desc">Remove Followers and All Activity tabs</span>
+                </div>
+                <input type="checkbox" id="hideArtistProfileTabs" class="setting-checkbox" />
+              </label>
+            </div>
+          </section>
+
+          <!-- Visual Tweaks -->
+          <section class="settings-section">
+            <div class="section-header">
+              <h2>Visual Tweaks</h2>
+              <p class="section-description">Layout and typography adjustments</p>
+            </div>
+            <div class="settings-grid">
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Wide Content Mode</span>
+                  <span class="setting-desc">Expand content to use full page width</span>
+                </div>
+                <input type="checkbox" id="wideContent" class="setting-checkbox" />
+              </label>
+              <label class="setting-card">
+                <div class="setting-info">
+                  <span class="setting-name">Cleaner Typography</span>
+                  <span class="setting-desc">Apply improved font and line spacing to lyrics</span>
+                </div>
+                <input type="checkbox" id="cleanerTypography" class="setting-checkbox" />
+              </label>
+            </div>
+          </section>
+        </div>
+        <!-- End Detailed Settings -->
 
         <!-- Actions -->
         <section class="settings-section actions-section">

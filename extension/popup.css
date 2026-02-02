@@ -12,11 +12,16 @@ body {
   line-height: 1.5;
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  width: 320px;
+  width: 280px;
 }
 
 .popup-container {
   padding: 0;
+}
+
+/* Hidden utility */
+.hidden {
+  display: none !important;
 }
 
 /* Header */
@@ -100,14 +105,9 @@ body {
   font-weight: 500;
 }
 
-.status-enabled {
-  background-color: var(--success-bg);
-  color: var(--success-text);
-}
-
 .status-disabled {
-  background-color: var(--muted-bg);
-  color: var(--text-muted);
+  background-color: var(--error-bg);
+  color: var(--error-text);
 }
 
 /* Section */
@@ -125,38 +125,59 @@ body {
   margin-bottom: 12px;
 }
 
-/* Quick Settings */
-.quick-settings {
+/* Not on Genius section */
+.not-genius {
+  text-align: center;
+}
+
+.not-genius-message {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
+  margin-bottom: 16px;
+  color: var(--text-muted);
 }
 
-.setting-item {
+.not-genius-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.6;
+}
+
+.not-genius-message p {
+  font-size: 13px;
+}
+
+.btn-primary {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  background-color: var(--bg-secondary);
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: var(--accent-color);
+  border: none;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.15s;
-}
-
-.setting-item:hover {
-  background-color: var(--bg-hover);
-}
-
-.setting-label {
+  color: var(--accent-text);
   font-size: 13px;
-  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
 }
 
-.setting-checkbox {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--accent-color);
-  cursor: pointer;
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
 }
 
 /* Footer */
@@ -191,8 +212,80 @@ body {
   height: 16px;
 }
 
-/* Disabled state */
-body.disabled .popup-section {
+/* Action Buttons */
+.popup-actions {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 8px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-action:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--accent-color);
+}
+
+.btn-action:active {
+  transform: scale(0.98);
+}
+
+.btn-action:disabled {
   opacity: 0.5;
-  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-action.success {
+  background-color: var(--success-bg);
+  border-color: var(--success-text);
+  color: var(--success-text);
+}
+
+.btn-action.error {
+  background-color: var(--error-bg);
+  border-color: var(--error-text);
+  color: var(--error-text);
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.action-feedback {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.action-feedback.success {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+
+.action-feedback.error {
+  background-color: var(--error-bg);
+  color: var(--error-text);
 }

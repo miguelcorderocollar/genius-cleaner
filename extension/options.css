@@ -233,10 +233,74 @@ body {
   text-decoration: underline;
 }
 
-/* Disabled state */
+/* Disabled state (global toggle off) */
 body.disabled .settings-section:not(.actions-section):not(:first-child) {
   opacity: 0.5;
   pointer-events: none;
+}
+
+/* Hide All primary card */
+.setting-card-primary {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-hover));
+  border: 2px solid var(--accent-color);
+}
+
+.setting-card-primary .setting-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.setting-card-primary .setting-desc {
+  font-size: 13px;
+}
+
+/* Inline toggle for Hide All card */
+.toggle-inline {
+  flex-shrink: 0;
+}
+
+.toggle-inline .toggle-slider {
+  width: 48px;
+  height: 26px;
+}
+
+.toggle-inline .toggle-slider::before {
+  height: 20px;
+  width: 20px;
+}
+
+.toggle-inline input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+/* Hide All section */
+.hide-all-section {
+  margin-bottom: 24px;
+}
+
+/* Detailed settings hidden state */
+#detailed-settings.hidden {
+  display: none;
+}
+
+/* Collapsed indicator when Hide All is on */
+.hide-all-active-message {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.hide-all-active-message p {
+  margin: 0 0 8px 0;
+}
+
+.hide-all-active-message .hint {
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 /* Responsive */

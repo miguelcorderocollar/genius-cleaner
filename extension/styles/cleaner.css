@@ -35,7 +35,8 @@
 .gc-hide-nav [class*='StickyNav-desktop__Container'],
 .gc-hide-nav [class*='StickyNav-mobile__Container'],
 .gc-hide-nav [id='sticky-nav'],
-.gc-hide-nav nav[class*='StickyNav'] {
+.gc-hide-nav nav[class*='StickyNav'],
+.gc-hide-nav .header {
   display: none !important;
 }
 
@@ -51,7 +52,8 @@
 .gc-hide-footer [class*='PageFooter-desktop__Container'],
 .gc-hide-footer [class*='PageFooter-mobile__Container'],
 .gc-hide-footer [class*='PageFooter__Container'],
-.gc-hide-footer footer[class*='PageFooter'] {
+.gc-hide-footer footer[class*='PageFooter'],
+.gc-hide-footer .page_footer {
   display: none !important;
 }
 
@@ -68,13 +70,28 @@
 }
 
 /* =============================================================================
-   Recommended Songs ("You Might Also Like")
+   Lyrics Sidebar (Right sidebar with ticket links, recommended songs, etc.)
    ============================================================================= */
 
-.gc-hide-recommended [class*='RecommendedSongs__Container'],
-.gc-hide-recommended [class*='RecommendedSongs__Body'],
-.gc-hide-recommended [class*='RecommendedSongs__Header'],
-.gc-hide-recommended [class*='LyricsSidebarAd__Recommendations'] {
+.gc-hide-lyrics-sidebar [class*='RightSidebar__Container'],
+.gc-hide-lyrics-sidebar [class*='LyricsSidebarAd__'],
+.gc-hide-lyrics-sidebar [class*='StubhubLink__Container'],
+.gc-hide-lyrics-sidebar [class*='RecommendedSongs__Container'],
+.gc-hide-lyrics-sidebar [class*='RecommendedSongs__Body'],
+.gc-hide-lyrics-sidebar [class*='RecommendedSongs__Header'],
+.gc-hide-lyrics-sidebar [class*='LyricsSidebarAd__Recommendations'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Lyrics Edit Form (Editor UI for editing lyrics)
+   ============================================================================= */
+
+.gc-hide-lyrics-edit [class*='LyricsEdit-desktop__Container'],
+.gc-hide-lyrics-edit [class*='LyricsEdit-mobile__Container'],
+.gc-hide-lyrics-edit [class*='LyricsEdit__Container'],
+.gc-hide-lyrics-edit form[aria-label='Edit Lyrics Form'],
+.gc-hide-lyrics-edit [class*='LyricsEditExplainer__Container'] {
   display: none !important;
 }
 
@@ -172,6 +189,16 @@
 }
 
 /* =============================================================================
+   Album Leaderboard (Top Scholars)
+   ============================================================================= */
+
+.gc-hide-album-leaderboard [ng-if='!$ctrl.hide_leaderboard'],
+.gc-hide-album-leaderboard paginated-leaderboard,
+.gc-hide-album-leaderboard .leaderboard {
+  display: none !important;
+}
+
+/* =============================================================================
    Artist Sidebar
    ============================================================================= */
 
@@ -192,15 +219,123 @@
 }
 
 /* =============================================================================
+   Comments Section (includes "Sign Up And Drop Knowledge" CTA)
+   ============================================================================= */
+
+.gc-hide-comments [class*='SongCommentsWithAds__'],
+.gc-hide-comments [class*='Comments__Container'],
+.gc-hide-comments [class*='Comments__Title'],
+.gc-hide-comments .comments,
+.gc-hide-comments comments,
+.gc-hide-comments comment-form,
+.gc-hide-comments comment-list {
+  display: none !important;
+}
+
+/* =============================================================================
+   Share Buttons
+   ============================================================================= */
+
+.gc-hide-share-buttons [class*='ShareButtons__Container'],
+.gc-hide-share-buttons [class*='ShareButtons__Root'],
+.gc-hide-share-buttons [class*='ShareButtons__Button'],
+.gc-hide-share-buttons [class*='LyricsFooter__FooterShareButtons'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Contributors Card
+   ============================================================================= */
+
+.gc-hide-contributors [class*='ContributorsCreditSong__Container'],
+.gc-hide-contributors [class*='ContributorsCreditSong__Label'],
+.gc-hide-contributors [class*='ContributorsCreditSong__People'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Simplified Navigation (hide extra elements, keep logo)
+   ============================================================================= */
+
+/* Hide the entire right section (search + sign up) */
+.gc-hide-simplify-nav [class*='StickyNav-desktop__Right'],
+.gc-hide-simplify-nav [class*='StickyNav-mobile__Right'] {
+  display: none !important;
+}
+
+/* Hide search bar specifically */
+.gc-hide-simplify-nav [class*='StickyNavSearch-desktop__'],
+.gc-hide-simplify-nav [class*='StickyNavSearch-mobile__'],
+.gc-hide-simplify-nav [class*='StickyNavSearch__'] {
+  display: none !important;
+}
+
+/* Hide sign up/auth buttons */
+.gc-hide-simplify-nav [class*='StickyNavSignUp__'],
+.gc-hide-simplify-nav [class*='StickyNav-desktop__AuthTextButton'],
+.gc-hide-simplify-nav [class*='StickyNav-mobile__AuthTextButton'] {
+  display: none !important;
+}
+
+/* Hide site links / subnavigation */
+.gc-hide-simplify-nav [class*='StickyNavSiteLinks__'],
+.gc-hide-simplify-nav [class*='StickyNavSectionLink__'],
+.gc-hide-simplify-nav [class*='StickyNav-desktop__Subnavigation'],
+.gc-hide-simplify-nav [class*='StickyNav-mobile__Subnavigation'] {
+  display: none !important;
+}
+
+/* Hide the hamburger menu on mobile */
+.gc-hide-simplify-nav [class*='HamburgerMenu__'],
+.gc-hide-simplify-nav [class*='MobileMenu__'] {
+  display: none !important;
+}
+
+/* =============================================================================
    Wide Content Mode
    ============================================================================= */
 
-.gc-hide-wide [class*='PageGrid-desktop'],
+/* Main page container - use full width */
 .gc-hide-wide [class*='SongPage__Container'],
-.gc-hide-wide [class*='Lyrics__Root'] {
+.gc-hide-wide main[class*='SongPage'] {
   max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* 
+ * Override PageGrid layout - force single column
+ * PageGrid-desktop uses hashed classes (WfPnI, gpVjfp, etc.) for grid styling
+ * We need to override display:grid and grid-template-columns on ALL PageGrid elements
+ */
+.gc-hide-wide [class*='PageGrid-desktop'] {
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  grid-template-columns: 1fr !important;
   padding-left: 5% !important;
   padding-right: 5% !important;
+}
+
+/* Specifically target the lyrics root which has PageGrid styling */
+.gc-hide-wide [class*='Lyrics__Root'] {
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  grid-template-columns: 1fr !important;
+}
+
+/* Make lyrics container truly full-width */
+.gc-hide-wide [class*='Lyrics__Container'] {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Handle the lyrics wrapper */
+.gc-hide-wide [class*='SongPage__LyricsWrapper'],
+.gc-hide-wide [class*='LyricsPlaceholder'] {
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 /* Expand lyrics container when sidebar is hidden */
@@ -209,9 +344,23 @@
   max-width: 100% !important;
 }
 
-/* Center content */
-.gc-hide-wide main[class*='SongPage__Container'] {
-  margin: 0 auto !important;
+/* Responsive: better padding for narrow windows / half-screen mode */
+@media (max-width: 1200px) {
+  .gc-hide-wide [class*='Lyrics__Container'],
+  .gc-hide-wide [class*='Lyrics__Root'],
+  .gc-hide-wide [class*='PageGrid-desktop'] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gc-hide-wide [class*='Lyrics__Container'],
+  .gc-hide-wide [class*='Lyrics__Root'],
+  .gc-hide-wide [class*='PageGrid-desktop'] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
 }
 
 /* =============================================================================
@@ -229,6 +378,95 @@
 .gc-hide-typography [class*='Lyrics__Container'] br {
   margin-bottom: 0.3em !important;
 }
+
+/* =============================================================================
+   Breadcrumbs
+   ============================================================================= */
+
+.gc-hide-breadcrumbs .breadcrumbs,
+.gc-hide-breadcrumbs [class*='Breadcrumbs__'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Follow Button
+   ============================================================================= */
+
+.gc-hide-follow-button follow-button,
+.gc-hide-follow-button [class*='FollowButton__'],
+.gc-hide-follow-button [class*='follow_button'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Artist Video Player (Primis)
+   ============================================================================= */
+
+.gc-hide-artist-video primis-player,
+.gc-hide-artist-video [class*='primis_player'],
+.gc-hide-artist-video [class*='PrimisPlayer__'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Artist Leaderboard (Top Scholars)
+   ============================================================================= */
+
+.gc-hide-artist-leaderboard paginated-leaderboard,
+.gc-hide-artist-leaderboard .leaderboard,
+.gc-hide-artist-leaderboard [class*='Leaderboard__Container'] {
+  display: none !important;
+}
+
+/* Also hide the "Top X scholars" label above the leaderboard */
+.gc-hide-artist-leaderboard .text_label + .white_container:has(paginated-leaderboard),
+.gc-hide-artist-leaderboard [ng-if='$ctrl.show_leaderboard'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Artist Metadata Questions
+   ============================================================================= */
+
+.gc-hide-artist-questions artist-metadata-questions,
+.gc-hide-artist-questions [class*='ArtistMetadataQuestions__'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Artist Contributions/Activity
+   ============================================================================= */
+
+.gc-hide-artist-contributions [scroll-point='user_activity'],
+.gc-hide-artist-contributions .profile_contributions_group,
+.gc-hide-artist-contributions [class*='ProfileContributions__'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Artist Profile Tabs (Followers, All Activity)
+   ============================================================================= */
+
+.gc-hide-artist-tabs .profile_tabs,
+.gc-hide-artist-tabs .profile_header-tabs,
+.gc-hide-artist-tabs [class*='ProfileTabs__'] {
+  display: none !important;
+}
+
+/* =============================================================================
+   Page Type Classes (added by content script)
+   ============================================================================= */
+
+/*
+ * Page type classes are added to the body based on URL detection:
+ * - .gc-page-lyrics: Song/lyrics pages (URLs ending in -lyrics)
+ * - .gc-page-artist: Artist pages (URLs starting with /artists/)
+ * - .gc-page-album: Album pages (URLs starting with /albums/)
+ * - .gc-page-other: Any other Genius page
+ *
+ * Page-specific settings are only applied via JavaScript when on the correct
+ * page type. These classes can also be used for CSS-only targeting if needed.
+ */
 
 /* =============================================================================
    Global Disabled State

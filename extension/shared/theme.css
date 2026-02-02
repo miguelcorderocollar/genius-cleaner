@@ -19,6 +19,8 @@
   --success-bg: #d1fae5;
   --success-text: #065f46;
   --muted-bg: #f3f4f6;
+  --error-bg: #fef2f2;
+  --error-text: #dc2626;
 }
 
 /* Dark theme */
@@ -37,6 +39,8 @@
     --success-bg: #064e3b;
     --success-text: #6ee7b7;
     --muted-bg: #374151;
+    --error-bg: #450a0a;
+    --error-text: #fca5a5;
   }
 }
 
@@ -55,6 +59,8 @@
   --success-bg: #064e3b;
   --success-text: #6ee7b7;
   --muted-bg: #374151;
+  --error-bg: #450a0a;
+  --error-text: #fca5a5;
 }
 
 /* Manual light theme override */
@@ -72,4 +78,6 @@
   --success-bg: #d1fae5;
   --success-text: #065f46;
   --muted-bg: #f3f4f6;
+  --error-bg: #fef2f2;
+  --error-text: #dc2626;
 }

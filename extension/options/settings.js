@@ -6,6 +6,44 @@ import { DEFAULTS, SETTING_LABELS } from '../shared/defaults.js';
 const ALL_SETTINGS = Object.keys(DEFAULTS);
 
 /**
+ * Update the visibility of detailed settings based on Hide All toggle
+ * @param {boolean} hideAll - Whether Hide All is enabled
+ */
+function updateDetailedSettingsVisibility(hideAll) {
+  const detailedSettings = document.getElementById('detailed-settings');
+  const existingMessage = document.querySelector('.hide-all-active-message');
+
+  if (hideAll) {
+    // Hide detailed settings
+    if (detailedSettings) {
+      detailedSettings.classList.add('hidden');
+    }
+    // Show message if not already present
+    if (!existingMessage) {
+      const message = document.createElement('div');
+      message.className = 'hide-all-active-message';
+      message.innerHTML = `
+        <p>All clutter is being hidden automatically.</p>
+        <span class="hint">Turn off "Hide All" above to customize individual settings.</span>
+      `;
+      const actionsSection = document.querySelector('.actions-section');
+      if (actionsSection) {
+        actionsSection.parentNode.insertBefore(message, actionsSection);
+      }
+    }
+  } else {
+    // Show detailed settings
+    if (detailedSettings) {
+      detailedSettings.classList.remove('hidden');
+    }
+    // Remove message
+    if (existingMessage) {
+      existingMessage.remove();
+    }
+  }
+}
+
+/**
  * Update the UI based on current settings
  * @param {object} settings - Current settings
  */
@@ -24,6 +62,9 @@ function updateUI(settings) {
   } else {
     document.body.classList.add('disabled');
   }
+
+  // Update detailed settings visibility based on Hide All
+  updateDetailedSettingsVisibility(settings.hideAll);
 }
 
 /**
