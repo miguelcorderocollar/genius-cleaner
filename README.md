@@ -34,7 +34,7 @@
 - **Per-Section Control** - Choose exactly what to hide
 - **Wide Content Mode** - Expand lyrics to full width
 - **Cleaner Typography** - Improved font and spacing
-- **Keyboard Shortcut** - `Ctrl+Shift+G` to toggle
+- **Keyboard Shortcut** - `Ctrl+Shift+K` to toggle
 - **Settings Sync** - Settings sync across devices
 
 ## Installation
@@ -94,7 +94,7 @@ Right-click the extension icon and select "Options" to access:
 
 ### Keyboard Shortcut
 
-Press `Ctrl+Shift+G` (or `Cmd+Shift+G` on Mac) to toggle the cleaner on/off.
+Press `Ctrl+Shift+K` (or `Cmd+Shift+K` on Mac) to toggle the cleaner on/off.
 
 ## Development
 

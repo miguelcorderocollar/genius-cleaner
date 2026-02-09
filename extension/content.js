@@ -307,18 +307,34 @@ async function init() {
       }
     });
 
-    // Only observe if body exists, otherwise wait for it
-    if (document.body) {
-      urlObserver.observe(document.body, { childList: true, subtree: true });
-    } else {
+    // Helper function to safely observe body
+    const observeBody = () => {
+      const body = document.body;
+      // Verify body exists and is a valid Node instance
+      if (body && body instanceof Node && body.nodeType === Node.ELEMENT_NODE) {
+        try {
+          urlObserver.observe(body, { childList: true, subtree: true });
+          return true;
+        } catch (error) {
+          console.error('Failed to observe document.body:', error);
+          return false;
+        }
+      }
+      return false;
+    };
+
+    // Only observe if body exists and is valid, otherwise wait for it
+    if (!observeBody()) {
       // Wait for body to be available
       const bodyObserver = new MutationObserver((mutations, observer) => {
-        if (document.body) {
-          urlObserver.observe(document.body, { childList: true, subtree: true });
+        if (observeBody()) {
           observer.disconnect(); // Stop observing once body is found
         }
       });
-      bodyObserver.observe(document.documentElement, { childList: true });
+      // Observe documentElement to detect when body is added
+      if (document.documentElement && document.documentElement instanceof Node) {
+        bodyObserver.observe(document.documentElement, { childList: true });
+      }
     }
 
     // Listen for messages from popup/background

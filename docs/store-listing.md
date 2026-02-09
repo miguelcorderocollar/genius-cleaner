@@ -34,7 +34,7 @@ Simplify Genius.com by hiding ads, sidebars, and clutter while keeping lyrics an
 🎯 **Per-Section Control** - Choose exactly what to hide
 📐 **Wide Content Mode** - Expand lyrics to full width
 🔤 **Cleaner Typography** - Improved fonts and spacing
-⌨️ **Keyboard Shortcut** - Ctrl+Shift+G to toggle
+⌨️ **Keyboard Shortcut** - Ctrl+Shift+K to toggle
 🔄 **Settings Sync** - Syncs across your Chrome browsers
 
 ## Privacy First

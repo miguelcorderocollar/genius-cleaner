@@ -250,6 +250,12 @@ a {
   background-color: var(--bg-tertiary);
 }
 
+.btn-disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  pointer-events: none;
+}
+
 /* Section */
 .section-header {
   text-align: center;

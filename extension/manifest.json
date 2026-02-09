@@ -38,8 +38,8 @@
   "commands": {
     "toggle-cleaner": {
       "suggested_key": {
-        "default": "Ctrl+Shift+G",
-        "mac": "Command+Shift+G"
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
       },
       "description": "Toggle Genius Cleaner on/off"
     }
