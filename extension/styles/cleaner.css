@@ -159,6 +159,16 @@
 }
 
 /* =============================================================================
+   Highlight Tooltip (Sign Up to Start Annotating)
+   ============================================================================= */
+
+.gc-hide-highlight-tooltip [class*='LyricsHighlightTooltipContainer'],
+.gc-hide-highlight-tooltip [class*='LyricsHighlightTooltip__Container'],
+.gc-hide-highlight-tooltip [class*='LyricsHighlightTooltip__Content'] {
+  display: none !important;
+}
+
+/* =============================================================================
    Credits Section
    ============================================================================= */
 

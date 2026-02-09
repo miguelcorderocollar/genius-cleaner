@@ -51,6 +51,7 @@ const SETTING_TO_CLASS = {
   hideAlbumTracklist: 'tracklist',
   hidePyongButton: 'pyong',
   hideAnnotationHighlights: 'annotations',
+  hideHighlightTooltip: 'highlight-tooltip',
   hideCreditsSection: 'credits',
   hideComments: 'comments',
   hideShareButtons: 'share-buttons',
@@ -305,7 +306,20 @@ async function init() {
         applySettings(settings, currentPageType);
       }
     });
-    urlObserver.observe(document.body, { childList: true, subtree: true });
+
+    // Only observe if body exists, otherwise wait for it
+    if (document.body) {
+      urlObserver.observe(document.body, { childList: true, subtree: true });
+    } else {
+      // Wait for body to be available
+      const bodyObserver = new MutationObserver((mutations, observer) => {
+        if (document.body) {
+          urlObserver.observe(document.body, { childList: true, subtree: true });
+          observer.disconnect(); // Stop observing once body is found
+        }
+      });
+      bodyObserver.observe(document.documentElement, { childList: true });
+    }
 
     // Listen for messages from popup/background
     chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {

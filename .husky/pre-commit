@@ -1,1 +1,6 @@
+#!/usr/bin/env sh
+# Ensure pnpm is available in PATH
+export PATH="$HOME/.local/share/pnpm:$PATH"
+
+# Run lint-staged
 pnpm exec lint-staged

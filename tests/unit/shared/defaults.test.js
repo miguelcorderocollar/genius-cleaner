@@ -36,6 +36,10 @@ describe('defaults.js', () => {
       expect(DEFAULTS.hideContributors).toBe(true);
     });
 
+    it('should have hideHighlightTooltip default to true', () => {
+      expect(DEFAULTS.hideHighlightTooltip).toBe(true);
+    });
+
     // New common settings
     it('should have hideBreadcrumbs default to true', () => {
       expect(DEFAULTS.hideBreadcrumbs).toBe(true);
@@ -104,6 +108,7 @@ describe('defaults.js', () => {
       expect(SETTING_CATEGORIES.song.settings).toContain('hideComments');
       expect(SETTING_CATEGORIES.song.settings).toContain('hideShareButtons');
       expect(SETTING_CATEGORIES.song.settings).toContain('hideContributors');
+      expect(SETTING_CATEGORIES.song.settings).toContain('hideHighlightTooltip');
     });
 
     it('should have album category with leaderboard setting', () => {
