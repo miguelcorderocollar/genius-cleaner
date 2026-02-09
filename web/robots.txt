@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://genius-cleaner.example.com/sitemap.xml
+Sitemap: https://genius-cleaner.miguelcorderocollar.com/sitemap.xml

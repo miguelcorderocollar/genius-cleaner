@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/user/genius-cleaner.git"
+    "url": "git+https://github.com/miguelcorderocollar/genius-cleaner.git"
   },
   "keywords": [
     "chrome-extension",
@@ -34,9 +34,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/user/genius-cleaner/issues"
+    "url": "https://github.com/miguelcorderocollar/genius-cleaner/issues"
   },
-  "homepage": "https://genius-cleaner.example.com/",
+  "homepage": "https://genius-cleaner.miguelcorderocollar.com/",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@playwright/test": "^1.58.1",

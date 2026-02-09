@@ -29,7 +29,7 @@
             <a href="index.html#features" class="nav-link">Features</a>
             <a href="privacy.html" class="nav-link">Privacy</a>
             <a
-              href="https://github.com/user/genius-cleaner"
+              href="https://github.com/miguelcorderocollar/genius-cleaner"
               class="nav-link"
               target="_blank"
               rel="noopener"
@@ -61,94 +61,227 @@
     <main class="privacy-page">
       <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: February 2026</p>
+        <p class="last-updated">Effective Date: February 2026 | Last Updated: February 2026</p>
 
         <section class="privacy-section">
           <h2>Overview</h2>
           <p>
-            Genius Cleaner is committed to protecting your privacy. This extension is designed with
-            privacy as a core principle - we do not collect, store, or transmit any personal data.
+            Genius Cleaner is a Chrome browser extension that simplifies the Genius.com user
+            interface by hiding ads, sidebars, and clutter while preserving lyrics and core content.
+            This privacy policy explains how Genius Cleaner handles user data.
           </p>
         </section>
 
         <section class="privacy-section">
           <h2>Data Collection</h2>
-          <p><strong>We do not collect any data.</strong> Specifically:</p>
+          <p>
+            <strong>Genius Cleaner does NOT collect, transmit, or share any personal data.</strong>
+          </p>
+
+          <h3>What We Don't Do</h3>
           <ul>
-            <li>No personal information is collected</li>
-            <li>No browsing history is recorded</li>
-            <li>No usage analytics or telemetry</li>
-            <li>No cookies or tracking mechanisms</li>
-            <li>No data is sent to external servers</li>
+            <li>❌ We do NOT send any data to external servers</li>
+            <li>❌ We do NOT collect personal information</li>
+            <li>❌ We do NOT use analytics or tracking services</li>
+            <li>❌ We do NOT share data with third parties</li>
+            <li>❌ We do NOT monitor your browsing activity</li>
+            <li>❌ We do NOT access content from websites other than Genius.com</li>
+          </ul>
+
+          <h3>What We Do Store Locally</h3>
+          <p>
+            Genius Cleaner stores the following data <strong>locally in your browser only</strong>:
+          </p>
+          <ol>
+            <li>
+              <strong>User Preferences & Settings</strong>
+              <ul>
+                <li>
+                  Which elements to hide/show (ads, recommendations, Q&A sections, footer, etc.)
+                </li>
+                <li>Page-specific settings for song pages, album pages, and artist pages</li>
+                <li>Visual preferences (wide content mode, cleaner typography)</li>
+                <li>Global enable/disable state</li>
+              </ul>
+            </li>
+          </ol>
+          <p>
+            All data is stored using Chrome's built-in <code>chrome.storage.sync</code> API, which
+            means:
+          </p>
+          <ul>
+            <li>Data stays on your device or syncs to your personal Chrome account</li>
+            <li>Data is encrypted in transit when syncing between your devices</li>
+            <li>Only you have access to your data</li>
           </ul>
         </section>
 
         <section class="privacy-section">
-          <h2>Local Storage</h2>
-          <p>The extension stores your preferences locally using Chrome's built-in storage API:</p>
-          <ul>
-            <li>
-              <strong>Settings:</strong> Your toggle preferences (what to hide/show) are stored
-              locally in your browser
-            </li>
-            <li>
-              <strong>Sync:</strong> If you're signed into Chrome, your settings may sync across
-              your devices through Chrome's built-in sync feature
-            </li>
-          </ul>
+          <h2>How Genius Cleaner Works</h2>
+          <p>When you use Genius Cleaner:</p>
+          <ol>
+            <li>The extension runs only on Genius.com pages (<code>*://*.genius.com/*</code>)</li>
+            <li>It applies CSS classes to hide elements based on your preferences</li>
+            <li>All processing happens entirely within your browser</li>
+            <li><strong>No content is ever sent to external servers</strong></li>
+          </ol>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Permissions Explained</h2>
+          <p>Genius Cleaner requests the following permissions:</p>
+          <table style="width: 100%; border-collapse: collapse; margin: 1em 0">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color)">
+                <th style="text-align: left; padding: 0.5em">Permission</th>
+                <th style="text-align: left; padding: 0.5em">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color)">
+                <td style="padding: 0.5em"><code>storage</code></td>
+                <td style="padding: 0.5em">Save your preferences and settings locally</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color)">
+                <td style="padding: 0.5em"><code>activeTab</code></td>
+                <td style="padding: 0.5em">Apply CSS classes to the current Genius.com tab</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color)">
+                <td style="padding: 0.5em"><code>downloads</code></td>
+                <td style="padding: 0.5em">
+                  Declared for potential future features (currently unused)
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5em"><code>genius.com</code></td>
+                <td style="padding: 0.5em">
+                  Modify the appearance of Genius.com pages by hiding elements
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Why <code>genius.com</code> Host Permission?</h3>
           <p>
-            This data never leaves your browser except through Chrome's own sync mechanism if
-            enabled.
+            Genius Cleaner requires host permission for <code>*://*.genius.com/*</code> because it
+            modifies the appearance of Genius.com pages by hiding elements based on your
+            preferences. The content script injects CSS classes into the page DOM to control
+            visibility of ads, sidebars, recommendations, and other UI elements.
+          </p>
+          <p>
+            The extension only processes content when you visit Genius.com pages. It does not
+            automatically access, monitor, or collect any browsing data from other websites.
           </p>
         </section>
 
         <section class="privacy-section">
-          <h2>Permissions</h2>
-          <p>The extension requires the following permissions:</p>
+          <h2>Data Retention</h2>
           <ul>
             <li>
-              <strong>genius.com:</strong> To modify the Genius website's appearance by hiding
-              elements
+              <strong>Settings:</strong> Stored until you uninstall the extension or clear browser
+              data
             </li>
-            <li><strong>storage:</strong> To save your preferences locally</li>
-            <li><strong>activeTab:</strong> To apply settings to the current Genius tab</li>
+            <li>
+              <strong>No Usage Statistics:</strong> Genius Cleaner does not track or store usage
+              statistics
+            </li>
           </ul>
         </section>
 
         <section class="privacy-section">
-          <h2>Third Parties</h2>
+          <h2>Your Rights</h2>
+          <p>You have full control over your data:</p>
+          <ul>
+            <li>
+              <strong>View Settings:</strong> All settings are visible in the extension options page
+            </li>
+            <li>
+              <strong>Modify Settings:</strong> Change preferences anytime through the popup or
+              options page
+            </li>
+            <li>
+              <strong>Delete All Data:</strong> Uninstall the extension to remove all stored data
+            </li>
+            <li>
+              <strong>Disable Extension:</strong> Use the global toggle to disable the extension
+              without deleting settings
+            </li>
+          </ul>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Data Security</h2>
+          <ul>
+            <li>All data processing happens locally in your browser</li>
+            <li>No data is transmitted over the internet (except Chrome's built-in sync)</li>
+            <li>No external servers or databases are used</li>
+            <li>The extension source code is open for review</li>
+          </ul>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Children's Privacy</h2>
           <p>
-            Genius Cleaner does not share data with any third parties because we do not collect any
-            data in the first place. The extension operates entirely within your browser.
+            Genius Cleaner does not knowingly collect any personal information from children under
+            13 years of age. The extension does not collect personal information from any users.
+          </p>
+        </section>
+
+        <section class="privacy-section">
+          <h2>Changes to This Policy</h2>
+          <p>
+            If we make changes to this privacy policy, we will update the "Last Updated" date at the
+            top of this document. Continued use of Genius Cleaner after changes constitutes
+            acceptance of the updated policy.
           </p>
         </section>
 
         <section class="privacy-section">
           <h2>Open Source</h2>
           <p>
-            Genius Cleaner is open source. You can review the complete source code on
-            <a href="https://github.com/user/genius-cleaner" target="_blank" rel="noopener"
-              >GitHub</a
-            >
-            to verify our privacy practices.
+            Genius Cleaner is open source. You can review the complete source code to verify our
+            privacy practices:
           </p>
-        </section>
-
-        <section class="privacy-section">
-          <h2>Changes</h2>
-          <p>
-            If we make changes to this privacy policy, we will update the "Last updated" date at the
-            top of this page.
-          </p>
+          <ul>
+            <li>
+              <strong>Repository:</strong>
+              <a
+                href="https://github.com/miguelcorderocollar/genius-cleaner"
+                target="_blank"
+                rel="noopener"
+                >GitHub - Genius Cleaner</a
+              >
+            </li>
+          </ul>
         </section>
 
         <section class="privacy-section">
           <h2>Contact</h2>
           <p>
-            If you have questions about this privacy policy, please open an issue on our
-            <a href="https://github.com/user/genius-cleaner/issues" target="_blank" rel="noopener"
-              >GitHub repository</a
-            >.
+            If you have questions about this privacy policy or Genius Cleaner's data practices,
+            please contact us:
+          </p>
+          <ul>
+            <li>
+              <strong>GitHub Issues:</strong>
+              <a
+                href="https://github.com/miguelcorderocollar/genius-cleaner/issues"
+                target="_blank"
+                rel="noopener"
+                >https://github.com/miguelcorderocollar/genius-cleaner/issues</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section
+          class="privacy-section"
+          style="margin-top: 2em; padding-top: 1.5em; border-top: 2px solid var(--border-color)"
+        >
+          <p>
+            <strong>Summary:</strong> Genius Cleaner processes content entirely in your browser. No
+            personal data is collected, transmitted, or shared. Your settings are stored locally and
+            are fully under your control.
           </p>
         </section>
       </div>
@@ -162,7 +295,7 @@
           <div class="footer-links">
             <a href="privacy.html" class="footer-link">Privacy Policy</a>
             <a
-              href="https://github.com/user/genius-cleaner"
+              href="https://github.com/miguelcorderocollar/genius-cleaner"
               class="footer-link"
               target="_blank"
               rel="noopener"

@@ -50,7 +50,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/user/genius-cleaner.git
+   git clone https://github.com/miguelcorderocollar/genius-cleaner.git
    cd genius-cleaner
    ```
 
