@@ -117,7 +117,81 @@ test.describe('Lyrics Page - Wide Content Mode', () => {
     }
   });
 
-  test('should expand lyrics container width', async ({ page }) => {
+  test('should center the song header with the lyrics column', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const header = page.locator('[data-testid="song-header"]').first();
+    const lyrics = page.locator('[class*="Lyrics__Container"]').first();
+
+    if ((await header.count()) > 0 && (await lyrics.count()) > 0) {
+      await applyHideClass(page, 'gc-hide-wide');
+
+      await expect(header).toHaveCSS('max-width', '880px');
+
+      const alignment = await page.evaluate(() => {
+        const headerElement = document.querySelector('[data-testid="song-header"]');
+        const lyricsElement = document.querySelector('[class*="Lyrics__Container"]');
+        const headerRect = headerElement.getBoundingClientRect();
+        const lyricsRect = lyricsElement.getBoundingClientRect();
+
+        return {
+          centerDelta: Math.abs(
+            (headerRect.left + headerRect.right) / 2 - (lyricsRect.left + lyricsRect.right) / 2
+          ),
+          headerWidth: headerRect.width,
+          lyricsWidth: lyricsRect.width,
+        };
+      });
+
+      expect(alignment.headerWidth).toBe(880);
+      expect(alignment.lyricsWidth).toBe(880);
+      expect(alignment.centerDelta).toBeLessThanOrEqual(1);
+    }
+  });
+
+  test('should extend the song header color treatment to the viewport edges', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const header = page.locator('[data-testid="song-header"]').first();
+
+    if ((await header.count()) > 0) {
+      await page.setViewportSize({ width: 1968, height: 900 });
+      await applyHideClass(page, 'gc-hide-wide');
+
+      const colorBand = await header.evaluate((element) => {
+        const headerStyle = window.getComputedStyle(element);
+        const bandStyle = window.getComputedStyle(element, '::before');
+
+        return {
+          headerBackground: headerStyle.backgroundImage,
+          bandBackground: bandStyle.backgroundImage,
+          bandWidth: bandStyle.width,
+          bandContent: bandStyle.content,
+        };
+      });
+
+      expect(colorBand.bandContent).toBe('""');
+      expect(colorBand.bandWidth).toBe('1968px');
+      expect(colorBand.bandBackground).toBe(colorBand.headerBackground);
+    }
+  });
+
+  test('should add breathing room above the artist credit', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const artistCredit = page
+      .locator(
+        '[class*="SongHeader-desktop__SongDetails"] > [class*="SongHeader-desktop__CreditList"]'
+      )
+      .first();
+
+    if ((await artistCredit.count()) > 0) {
+      await applyHideClass(page, 'gc-hide-wide');
+      await expect(artistCredit).toHaveCSS('margin-top', '12px');
+    }
+  });
+
+  test('should cap lyrics container at a readable width', async ({ page }) => {
     await setupPage(page, 'lyrics');
 
     const container = page.locator('[class*="Lyrics__Container"]').first();
@@ -125,12 +199,55 @@ test.describe('Lyrics Page - Wide Content Mode', () => {
     if ((await container.count()) > 0) {
       await applyHideClass(page, 'gc-hide-wide');
 
-      const maxWidth = await container.evaluate((el) => {
-        return window.getComputedStyle(el).maxWidth;
+      await expect(container).toHaveCSS('max-width', '880px');
+    }
+  });
+
+  test('should center the lyrics column while keeping lyrics left-aligned', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const container = page.locator('[class*="Lyrics__Container"]').first();
+
+    if ((await container.count()) > 0) {
+      await applyHideClass(page, 'gc-hide-wide');
+
+      await expect(container).toHaveCSS('max-width', '880px');
+      await expect(container).toHaveCSS('text-align', 'left');
+
+      const centering = await container.evaluate((element) => {
+        const rect = element.getBoundingClientRect();
+        const parentRect = element.parentElement.getBoundingClientRect();
+        const containerCenter = (rect.left + rect.right) / 2;
+        const parentCenter = (parentRect.left + parentRect.right) / 2;
+
+        return Math.abs(containerCenter - parentCenter);
       });
 
-      // Should be 100% or none (not a fixed pixel value)
-      expect(maxWidth === '100%' || maxWidth === 'none').toBeTruthy();
+      expect(centering).toBeLessThanOrEqual(1);
+    }
+  });
+
+  test('should keep safe horizontal padding at responsive widths', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const container = page.locator('[class*="Lyrics__Container"]').first();
+    const pageGrid = page.locator('[class*="PageGrid-desktop"]').first();
+
+    if ((await container.count()) > 0) {
+      await applyHideClass(page, 'gc-hide-wide');
+
+      await page.setViewportSize({ width: 1024, height: 800 });
+      await expect(container).toHaveCSS('padding-left', '24px');
+      await expect(container).toHaveCSS('padding-right', '24px');
+
+      await page.setViewportSize({ width: 768, height: 800 });
+      await expect(container).toHaveCSS('padding-left', '16px');
+      await expect(container).toHaveCSS('padding-right', '16px');
+      await expect(pageGrid).toHaveCSS('box-sizing', 'border-box');
+
+      await applyHideClass(page, 'gc-hide-footer');
+      const documentWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+      expect(documentWidth).toBe(768);
     }
   });
 });
