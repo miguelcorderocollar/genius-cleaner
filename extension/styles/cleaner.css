@@ -327,6 +327,19 @@
   padding-right: 5% !important;
 }
 
+/* Keep the song header aligned with the centered lyrics column */
+.gc-hide-wide [data-testid='song-header'],
+.gc-hide-wide [class*='SongHeader-desktop__Container'],
+.gc-hide-wide [class*='SongHeader-mobile__Container'] {
+  box-sizing: border-box !important;
+  max-width: 880px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* Specifically target the lyrics root which has PageGrid styling */
 .gc-hide-wide [class*='Lyrics__Root'] {
   display: block !important;
@@ -335,10 +348,17 @@
   grid-template-columns: 1fr !important;
 }
 
-/* Make lyrics container truly full-width */
+/* Center the lyrics in a readable column while using the recovered space */
+.gc-hide-wide [data-lyrics-container='true'],
 .gc-hide-wide [class*='Lyrics__Container'] {
-  max-width: 100% !important;
+  box-sizing: border-box !important;
+  max-width: 880px !important;
   width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: left !important;
 }
 
 /* Handle the lyrics wrapper */
@@ -348,14 +368,16 @@
   width: 100% !important;
 }
 
-/* Expand lyrics container when sidebar is hidden */
-.gc-hide-wide.gc-hide-recommended [class*='LyricsPlaceholder'],
-.gc-hide-wide.gc-hide-recommended [class*='Lyrics__Container'] {
+/* Keep the lyrics wrapper full-width when the sidebar is hidden */
+.gc-hide-wide.gc-hide-recommended [class*='LyricsPlaceholder'] {
   max-width: 100% !important;
 }
 
 /* Responsive: better padding for narrow windows / half-screen mode */
 @media (max-width: 1200px) {
+  .gc-hide-wide [data-testid='song-header'],
+  .gc-hide-wide [class*='SongHeader-desktop__Container'],
+  .gc-hide-wide [class*='SongHeader-mobile__Container'],
   .gc-hide-wide [class*='Lyrics__Container'],
   .gc-hide-wide [class*='Lyrics__Root'],
   .gc-hide-wide [class*='PageGrid-desktop'] {
@@ -365,6 +387,9 @@
 }
 
 @media (max-width: 768px) {
+  .gc-hide-wide [data-testid='song-header'],
+  .gc-hide-wide [class*='SongHeader-desktop__Container'],
+  .gc-hide-wide [class*='SongHeader-mobile__Container'],
   .gc-hide-wide [class*='Lyrics__Container'],
   .gc-hide-wide [class*='Lyrics__Root'],
   .gc-hide-wide [class*='PageGrid-desktop'] {
