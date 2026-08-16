@@ -149,6 +149,48 @@ test.describe('Lyrics Page - Wide Content Mode', () => {
     }
   });
 
+  test('should extend the song header color treatment to the viewport edges', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const header = page.locator('[data-testid="song-header"]').first();
+
+    if ((await header.count()) > 0) {
+      await page.setViewportSize({ width: 1968, height: 900 });
+      await applyHideClass(page, 'gc-hide-wide');
+
+      const colorBand = await header.evaluate((element) => {
+        const headerStyle = window.getComputedStyle(element);
+        const bandStyle = window.getComputedStyle(element, '::before');
+
+        return {
+          headerBackground: headerStyle.backgroundImage,
+          bandBackground: bandStyle.backgroundImage,
+          bandWidth: bandStyle.width,
+          bandContent: bandStyle.content,
+        };
+      });
+
+      expect(colorBand.bandContent).toBe('""');
+      expect(colorBand.bandWidth).toBe('1968px');
+      expect(colorBand.bandBackground).toBe(colorBand.headerBackground);
+    }
+  });
+
+  test('should add breathing room above the artist credit', async ({ page }) => {
+    await setupPage(page, 'lyrics');
+
+    const artistCredit = page
+      .locator(
+        '[class*="SongHeader-desktop__SongDetails"] > [class*="SongHeader-desktop__CreditList"]'
+      )
+      .first();
+
+    if ((await artistCredit.count()) > 0) {
+      await applyHideClass(page, 'gc-hide-wide');
+      await expect(artistCredit).toHaveCSS('margin-top', '12px');
+    }
+  });
+
   test('should cap lyrics container at a readable width', async ({ page }) => {
     await setupPage(page, 'lyrics');
 
@@ -189,6 +231,7 @@ test.describe('Lyrics Page - Wide Content Mode', () => {
     await setupPage(page, 'lyrics');
 
     const container = page.locator('[class*="Lyrics__Container"]').first();
+    const pageGrid = page.locator('[class*="PageGrid-desktop"]').first();
 
     if ((await container.count()) > 0) {
       await applyHideClass(page, 'gc-hide-wide');
@@ -200,6 +243,11 @@ test.describe('Lyrics Page - Wide Content Mode', () => {
       await page.setViewportSize({ width: 768, height: 800 });
       await expect(container).toHaveCSS('padding-left', '16px');
       await expect(container).toHaveCSS('padding-right', '16px');
+      await expect(pageGrid).toHaveCSS('box-sizing', 'border-box');
+
+      await applyHideClass(page, 'gc-hide-footer');
+      const documentWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+      expect(documentWidth).toBe(768);
     }
   });
 });
